@@ -29,6 +29,9 @@ jobs:
       - run: bash ci/build.sh
         env:
           RUN_NUMBER: ${{ github.run_number }}
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
+          KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
+          KEYSTORE_ALIAS: msar
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: driver-v1.0.${{ github.run_number }}
